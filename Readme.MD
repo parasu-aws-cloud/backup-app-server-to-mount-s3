@@ -172,3 +172,27 @@
          /dev/xvda128   vfat       10M  1.3M  8.7M  13% /boot/efi
          tmpfs          tmpfs      95M     0   95M   0% /run/user/1000
          /dev/xvdf      ext4      2.0G   24K  1.8G   1% /s3vol
+
+    note: when you reboot the server converted volume as file system back normol
+    for that you need to do two more steps.
+
+    steps: very importent
+    ---------------------
+    1. vi /etc/fstab -- in this file need to register volume 2GB
+
+    2. (/dev/xvdf                                     /s3vol      ext4   defaults,noatime  1   1) place this in that file
+       
+       and save it.
+    3. note: now even though server rebooted your volume and file system exist.
+    
+    -- df -hT -- it will show file system types server
+
+         Filesystem     Type      Size  Used Avail Use% Mounted on
+         devtmpfs       devtmpfs  4.0M     0  4.0M   0% /dev
+         tmpfs          tmpfs     475M     0  475M   0% /dev/shm
+         tmpfs          tmpfs     190M  2.9M  188M   2% /run
+         /dev/xvda1     xfs       8.0G  1.5G  6.5G  19% /
+         tmpfs          tmpfs     475M     0  475M   0% /tmp
+         /dev/xvda128   vfat       10M  1.3M  8.7M  13% /boot/efi
+         tmpfs          tmpfs      95M     0   95M   0% /run/user/1000
+         /dev/xvdf      ext4      2.0G   24K  1.8G   1% /s3vol
