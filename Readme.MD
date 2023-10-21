@@ -120,8 +120,55 @@
               Device name : /dev/sdf
 
               and click on attach volume.
-
-
+      
+      note: lets check it attached or not 
         
+        give this command:
+         
+         command :  lsblk -- it is going to show list of volumes 
+
+                    [root@ip-10-0-0-14 /]# lsblk
+            NAME      MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+            xvda      202:0    0   8G  0 disk 
+            ├─xvda1   202:1    0   8G  0 part /
+            ├─xvda127 259:0    0   1M  0 part 
+            └─xvda128 259:1    0  10M  0 part /boot/efi
+            xvdf      202:80   0   2G  0 disk 
            
-    
+       note : see hete 2GB attached as external volume to ec2 and we need to make it file sytem
+
+        following commands:
+
+         -> df -hT -- this command will show all types of volume file system types
+
+         -> mkfs -t ext4 /dev/xvdf -- it make that volume as a file system
+
+         output:
+
+         Creating filesystem with 524288 4k blocks and 131072 inodes
+         Filesystem UUID: e382cabc-0099-4091-a5bc-e808c53f3b16
+         Superblock backups stored on blocks: 
+              32768, 98304, 163840, 229376, 294912
+
+         Allocating group tables: done                            
+         Writing inode tables: done                            
+         Creating journal (16384 blocks): done
+         Writing superblocks and filesystem accounting information: done
+
+         -> mkdir -p /s3vol -- creating directory
+
+         -> mount /dev/xvdf /s3vol/ -- this /dev/xvdf mounted to /s3vol
+
+         -> df -hT -- it will show now file systen
+
+         output: note: now it is showing
+
+         Filesystem     Type      Size  Used Avail Use% Mounted on
+         devtmpfs       devtmpfs  4.0M     0  4.0M   0% /dev
+         tmpfs          tmpfs     475M     0  475M   0% /dev/shm
+         tmpfs          tmpfs     190M  2.9M  188M   2% /run
+         /dev/xvda1     xfs       8.0G  1.5G  6.5G  19% /
+         tmpfs          tmpfs     475M     0  475M   0% /tmp
+         /dev/xvda128   vfat       10M  1.3M  8.7M  13% /boot/efi
+         tmpfs          tmpfs      95M     0   95M   0% /run/user/1000
+         /dev/xvdf      ext4      2.0G   24K  1.8G   1% /s3vol
