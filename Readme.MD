@@ -101,7 +101,7 @@
 
        Key : name        value : app1-ex
 
-     * these vilumes need to attach app-server1 ,app-server2
+     * these volumes need to attach app-server1 ,app-server2
 
         steps:
 
