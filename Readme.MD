@@ -183,7 +183,7 @@
     2. (/dev/xvdf                                     /s3vol      ext4   defaults,noatime  1   1) place this in that file
        
        and save it.
-    3. note: now even though server rebooted your volume and file system exist.
+    3. note: now even though server rebooted your volume and file system exist or perminettly mounted.
     
     -- df -hT -- it will show file system types server
 
