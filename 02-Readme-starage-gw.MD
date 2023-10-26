@@ -1,7 +1,7 @@
 ### storage gatway configuration
 
-1. AWS Storage Gateway
-======================
+* . AWS Storage Gateway
+  
   On-premises access to virtually unlimited cloud storage.
    -> Seamlessly and securely integrate your on-premises IT environment with AWS storage infrastructure.
 
