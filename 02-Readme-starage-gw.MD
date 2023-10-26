@@ -220,7 +220,7 @@
 
             cuntinue later
       
-      [8]  go back to  
+      [8]  go back to [6]
 
 
 
