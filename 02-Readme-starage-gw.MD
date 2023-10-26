@@ -45,9 +45,9 @@
 
    5. following steps need to do.
 
-      1. create s3 bucket
+      [1] create s3 bucket
 
-      2. create IAM role with starage gateway full access and S3 list
+      [2] create IAM role with starage gateway full access and S3 list
         
          click on create-role button
 
@@ -75,21 +75,22 @@
                 
             click on create-role button
 
-      3. go back storage gateway console
+      [3] go back storage gateway console
         
         * Step 1
 
-        Gateway name: storage gateway
+         Gateway name: storage gateway
 
-        Gateway time zone: Choose the local time zone based on where you are deploying your gateway.
+         Gateway time zone: Choose the local time zone based on where you are deploying your gateway.
 
-        note: 
-        [select] VMware ESXi
+         note: 
+          [select] VMware ESXi
                  Microsoft Hyper-V
                  Linux KVM --> these three options we do have onprime application server migrate to aws cloud storage use based on requirement.
-        [select] Amazon EC2 --we do have this option only.
+          [select] Amazon EC2 --we do have this option only.
 
-        Launch EC2 instance:
+          Launch EC2 instance:
+          
           [select] Use default settings
              Virtual private cloud (VPC) network:IBM: PROD:FLPKRT:VPC:01
 
@@ -100,24 +101,126 @@
              we'll get notification :Successfully launched the instance
 
              click on next: 
+        
         * Step 2
+
           Connect to AWS
 
           Gateway connection options:
             Connection options: [select] IP address
             IP address: 18.170.60.213
-
-        note: check sgw-sg rules
+          
+           note: check sgw-sg rules
            ![Alt text](sgw-sg-rules.png) 
+      
+      [4]  now need add storage gate way winvms.pem file to app3,app4
 
-        * now need add storage gate way pem file to app3,app4
-
-          will do this first
+          -> will do this first
 
           windows to wondows - FTP
           windows to linux   - XFTP
           Linux to linux     - SCP
-          Linux to windows   - SAMBA  -- these are the file transfor protocol 
+          Linux to windows   - SAMBA  -- these are the file transfor protocol
+
+          ->note: scp -i "winvms.pem" winvms.pem ec2-user@10.0.0.4:/tmp/
+
+          ->it's not working for me i have used git clone for get the winvms.pem file in app3,app4
+          
+          -> app3,app4 add protocols https and ssh
+
+          -> app3,app4,storagegateways copy private-ip and configure all-trafic inbound rules sgw-sg 
+          
+      [5]  now try to connect storage gate way server from app3 
+
+           -> cd /
+           
+           -> chmod 400 winvms.pem
+
+           -> ssh -i winvms.pem admin@storage-gw-private-ip
+
+           storage gate way console like this:
+
+           
+                AWS Appliance Activation - Configuration
+
+                #######################################################################
+                ##  Currently connected network adapters:
+                ##
+                ##  eth0: 10.0.0.9
+                #######################################################################
+
+                1: HTTP/SOCKS Proxy Configuration
+                2: Network Configuration
+                3: Test Network Connectivity
+                4: View System Resource Check (0 Errors)
+                5: License Information
+                6: Command Prompt
+
+                0: Get activation key
+
+                Press "x" to exit session
+
+                Enter command:2   
+
+      [6]  now try to connect storage gate way server from app4
+
+              AWS Appliance Activation - Configuration
+
+                #######################################################################
+                ##  Currently connected network adapters:
+                ##
+                ##  eth0: 10.0.0.9
+                #######################################################################
+
+                1: HTTP/SOCKS Proxy Configuration
+                2: Network Configuration
+                3: Test Network Connectivity
+                4: View System Resource Check (0 Errors)
+                5: License Information
+                6: Command Prompt
+
+                0: Get activation key
+
+                Press "x" to exit session
+
+                Enter command: press 2 here
+         
+              option:
+               
+               AWS Appliance Activation - Network Configuration
+
+               1: Edit DNS Configuration
+               2: View DNS Configuration
+               3: Configure Hostname
+               4: View Hostname Configuration
+
+               Press "x" to exit
+
+               Enter command: press 2 here
+           
+           ------------------------------- 
+              
+            option:
+              
+              DNS Configuration
+
+
+              Available adapters: eth0
+              Enter network adapter: 
+
+      [7]   now ec2 console 
+
+             [select] storage gateway server
+
+             -> check network interface DNS anableed or not
+
+             -> click on (Network interface ID) and this console
+             
+             -> click on (create flow logs)
+
+            cuntinue later
+      
+      [8]  go back to  
 
 
 
