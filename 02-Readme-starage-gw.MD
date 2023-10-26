@@ -43,7 +43,7 @@
 
         Applications that need to stay on premises can now experience the same low latency and high performance that they have in AWS, without taxing your networks or impacting the latencies experienced by your most demanding applications.
 
-   5. following steps need to do.
+   ### following steps need to do.
 
       [1] create s3 bucket
 
