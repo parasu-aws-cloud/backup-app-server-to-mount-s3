@@ -221,6 +221,147 @@
             cuntinue later
       
       [8]  go back to [6]
+         
+           Enter command: 3
+
+           Testing network connection
+
+           Select gateway family:
+           1: AWS Storage Gateway
+           2: AWS Backup Gateway
+
+           Press "x" to exit
+
+           Please select a gateway family or exit: 1
+           
+           will get the options
+
+           Select network type:
+           1: Public
+           2: VPC (PrivateLink)
+
+           Press "x" to exit
+
+           Select network type or exit:
+
+      [9]  go back to storage gateway [STEP2]
+      
+           Endpoint options:
+             Service endpoint:
+               [select] VPC hosted
+
+            go to ec2 console copy storage gateway privvate DNS id
+             
+             like this : ip-10-0-0-9.eu-west-2.compute.internal
+
+            back to [STEP2]
+             
+             Choose how to identify an existing VPC endpoint:
+               
+               [select] VPC endpoint DNS name or IP address
+
+               or
+
+               [select] VPC endpoint ID
+
+            note we don't have vpc endpoints
+
+     [10] continue click on create vpc endpoits
+
+       ### Create endpoint
+              
+       Endpoint settings:
+         
+         Name tag - optional: storagegateway
+
+         Service category:
+         [select] AWS services
+
+         Service Name: [select] com.amazonaws.eu-west-2.storagegateway (search for this service)
+
+         VPC:
+           [select] vpc i have created
+
+           Additional settings:
+             DNS name:
+               [select] Enable DNS name by default enable
+             DNS record IP type:
+               [select] IPv4
+         
+         Subnets:
+           Availability Zone: [select all]
+
+           IP address type: IPv4
+
+         Security groups:
+
+           [select] IBM:PROD:FLPKRT:SG:01 
+
+         Tags:
+           key : Name           value: storage gateway
+
+         click on create note.
+
+     [11] back to [9]
+
+     Choose how to identify an existing VPC endpoint:
+
+     [select] VPC endpoint ID
+
+     click on next button
+
+         Step 1
+          Set up gateway:
+
+          Step 1: Gateway details
+
+            Gateway options:
+      
+       ![Alt text](<storage gateway access.png>)
+          
+          Step 2: Connection details
+          
+          Step 3
+          Activate gateway
+
+          click on activate gateway
+
+          Step 4
+          Configure gateway
+          
+          Configure gateway:
+            
+            Configure cache storage:
+      
+      ![Alt text](<Configure gateway.png>)
+            
+            CloudWatch log group:
+             [select] Create a new log group 
+
+            note: Pricing
+            Standard Amazon CloudWatch Logs pricing applies based on your usage
+
+            CloudWatch alarms:
+              Choose how to set up alarm: [select] no need alarm
+            
+            Tags - optional:
+
+            Value: storage gateway
+
+             click on configure button
+
+        
+            
+
+
+
+
+
+         
+           
+
+
+
 
 
 
