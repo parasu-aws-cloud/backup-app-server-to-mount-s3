@@ -49,7 +49,9 @@
 
       ->systemctl list-unit-files | grep nfs
 
-        add storage gat way sg add protocol: SSH port: 22 allow any ip
+       add storage gat way sg add protocol: SSH port: 22 allow any ip
 
-   [note] - finally ec2 and s3 mounted    
+   [note] - finally ec2 and s3 mounted  
+
+   ![Alt text](<Screenshot 2023-10-28 164008.png>)  
 
