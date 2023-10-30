@@ -317,7 +317,7 @@
 
             Gateway options:
       
-       ![Alt text](<storage gateway access.png>)
+  ![Alt text](<storage gateway access.png>)
           
           Step 2: Connection details
           
@@ -333,7 +333,7 @@
             
             Configure cache storage:
       
-      ![Alt text](<Configure gateway.png>)
+  ![Alt text](<Configure gateway.png>)
             
             CloudWatch log group:
              [select] Create a new log group 
@@ -350,7 +350,96 @@
 
              click on configure button
 
-        
+     [14] go to s3 bucket configuration
+           
+          copy the bucket name: singapore-ex-bucket
+
+          back to storage gateway [13]
+
+  ![Alt text](Gateways.png)
+
+          click on crete file share button
+
+          Create file share:
+            Gateway: storage gate way (some id) by default
+
+           File share protocol: [select] NFS
+
+           S3 bucket: appolo-dhl-prod
+
+           click on File share configuration
+              
+              Step 1
+              File share settings
+              
+              Amazon S3 location: [select] S3 bucket name
+
+              Amazon S3 bucket name: appolo-dhl-prod
+
+              AWS region: Asia Pacific (Singapore) ap-southeast-1
+
+              File share name: appolo-dhl-prod
+
+              Private Link for S3 - Optional : none
+
+              Access objects using: [select] Network File System (NFS)
+
+              Audit logs: we hae 3 options [select] Deactivate logging now
+
+              Automated cache refresh from S3: [select] None
+
+              Upload events settling time: [select] None
+              
+              Tags - optional
+               value: storage gate way
+              
+              click on next button 
+           
+           Step 2
+              Amazon S3 storage settings
+
+  ![Alt text](<Amazon S3 storage settings.png>)
+
+           keep same and click on next button
+
+          Step 3
+            File access settings
+
+            Access object:
+              Allowed clients: 10.0.0.0/26
+
+              Mount options: 
+                Access level: defaul
+
+              Export as:
+                [select] ead-write
+
+            File metadata defaults: note it is going to crete directory
+
+              Directory permissions: 0777
+
+              File permissions: 0777
+
+              User ID: 65534
+
+              Group ID: 65534
+
+            click on next button
+
+           Step 4
+             Review and create
+
+      [1] - <../../../../Users/koppa/OneDrive/Pictures/Screenshots/backupapp-server-to-s3/file share storage gate way.pdf> 
+
+           review all 
+
+           click on create button.
+
+           
+                
+
+
+                  
             
 
 
