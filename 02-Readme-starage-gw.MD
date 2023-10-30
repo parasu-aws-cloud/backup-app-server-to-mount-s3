@@ -429,7 +429,7 @@
            Step 4
              Review and create
 
-      [1] - <../../../../Users/koppa/OneDrive/Pictures/Screenshots/backupapp-server-to-s3/file share storage gate way.pdf> 
+  [1] - <../../../../Users/koppa/OneDrive/Pictures/Screenshots/backupapp-server-to-s3/file share storage gate way.pdf> 
 
            review all 
 
