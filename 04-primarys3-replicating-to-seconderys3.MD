@@ -99,7 +99,7 @@
 
        click on create-bucket
 
-    reiew this:
+    review this:
      
  ![Alt text](primary_db.png) view the s3 bucket which we have created
 
