@@ -51,7 +51,46 @@
   
    ![Alt text](primary_db.png) view the s3 bucket which we have created
 
-   
+   * step2:
+     
+     click on (appolo-dhl-prod)
+       
+      appolo-dhl-prod:
+        
+      * permissions 
+           
+           Permissions overview: public
+
+      * Block public access (bucket settings): 
+             
+           Block all public access: off
+      
+      * Bucket policy : if want edit
+
+      * Object Ownership: if want edit
+
+      * Access control list (ACL): click on edit
+
+          Access control list (ACL):
+            
+            Grantee                                                   Objects                    Bucket ACL
+        
+            Bucket owner (your AWS account) Canonical ID:             (list,write)               (read,write)
+            
+            Everyone (public access) Group:                           (list)                     (write)
+
+            Authenticated users group (anyone with an AWS account)    (list)                     (read)
+            Group:
+
+            click on save button
+            
+        review:
+   ![Alt text](nacl_dhl_prod.png)    
+          
+           
+
+        
+       
      
 2. go to s3 console and click on create-bucket for secondary replication.
 
